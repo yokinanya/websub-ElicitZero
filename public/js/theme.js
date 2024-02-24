@@ -71,16 +71,6 @@ themePic[2].onclick = function(){
     window.location.href = themeUrl[2];
 }
 
-//广告跳转
-var qfPic = document.getElementsByClassName("qf");
-qfPic[0].onclick = function(){
-    window.location.href = qfUrl[0];
-}
-qfPic[1].onclick = function(){
-    window.location.href = qfUrl[1];
-}
-
-
 //主题信息print到“关于“
 document.getElementById("theme-name").innerHTML = themeName;
 document.getElementById("theme-author").innerHTML = themeAuthor;
