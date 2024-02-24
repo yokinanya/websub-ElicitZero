@@ -507,6 +507,7 @@ export default {
   },
   mounted() {
     this.form.clientType = "clash";
+    this.getBackendVersion();
     this.form.customBackend = "https://api.tsutsu.one";
     this.form.remoteConfig = "https://cdn.jsdelivr.net/gh/ElicitZero/sub-ini@main/tsutsu-full.ini";
     //this.getBackendVersion();
