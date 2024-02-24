@@ -269,6 +269,7 @@ export default {
           {value: "https://sub.xeton.dev"},
           {value: "https://api.wcc.best"},
           {value: "https://api.dler.io"},
+	],
         remoteConfig: [
           {
             label: "つつの专属规则",
