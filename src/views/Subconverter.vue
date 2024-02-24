@@ -432,8 +432,8 @@ export default {
       form: {
         sourceSubUrl: "",
         clientType: "",
-        customBackend: "",
-        remoteConfig: "",
+           customBackend: this.getUrlParam() == "" ? "https://api.tsutsu.one" : this.getUrlParam(),
+        remoteConfig: "https://cdn.jsdelivr.net/gh/ElicitZero/sub-ini@main/tsutsu-full.ini",
         excludeRemarks: "",
         includeRemarks: "",
         filename: "",
@@ -456,6 +456,9 @@ export default {
           },
           clash: {
             doh: false
+          },
+	  singbox: {
+            ipv6: false
           }
         }
       },
@@ -526,6 +529,14 @@ export default {
 	gotoTgChannel() {
       window.open(tgBotLink);
     },
+	getUrlParam() {
+      let query = window.location.search.substring(1);
+      let vars = query.split('&');
+      for (let i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (pair[0] == "backend") {
+          return decodeURIComponent(pair[1]);
+        }
     gotoGayhub() {
       window.open(gayhubRelease);
     },
