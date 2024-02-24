@@ -517,6 +517,17 @@ export default {
     selectChanged() {
       this.getBackendVersion();
     },
+    getUrlParam() {
+      let query = window.location.search.substring(1);
+      let vars = query.split('&');
+      for (let i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (pair[0] == "backend") {
+          return decodeURIComponent(pair[1]);
+        }
+      }
+      return "";
+    },
     onCopy() {
       this.$message.success("Copied!");
     },
@@ -526,14 +537,6 @@ export default {
 	gotoTgChannel() {
       window.open(tgBotLink);
     },
-	getUrlParam() {
-      let query = window.location.search.substring(1);
-      let vars = query.split('&');
-      for (let i = 0; i < vars.length; i++) {
-        var pair = vars[i].split('=');
-        if (pair[0] == "backend") {
-          return decodeURIComponent(pair[1]);
-        },
     gotoGayhub() {
       window.open(gayhubRelease);
     },
