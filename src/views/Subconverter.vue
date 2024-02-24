@@ -584,13 +584,13 @@ export default {
       }
 
       this.customSubUrl =
-        backend +
-        "target=" +
-        this.form.clientType +
-        "&url=" +
-        encodeURIComponent(sourceSub) +
-        "&insert=" +
-        this.form.insert;
+          backend +
+          "/sub?target=" +
+          this.form.clientType +
+          "&url=" +
+          encodeURIComponent(sourceSub) +
+          "&insert=" +
+          this.form.insert;
 
       if (config !== "") {
         this.customSubUrl += "&config=" + encodeURIComponent(config);
