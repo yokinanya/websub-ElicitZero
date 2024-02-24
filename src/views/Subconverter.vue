@@ -295,7 +295,7 @@ export default {
               {
                 label: "Maoport",
                 value:
-                  "https://raw.githubusercontent.com/lhl77/sub-ini/main/tsutsu-maoport-full.ini"
+                  "https://raw.githubusercontent.com/ElicitZero/sub-ini/main/tsutsu-maoport-full.ini"
               },
             ]
           },
