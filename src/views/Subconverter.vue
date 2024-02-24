@@ -72,8 +72,8 @@
                   v-model="form.customBackend"
                   allow-create
                   filterable
-                  placeholder="请选择"
-		   @change="selectChanged"
+	          @change="selectChanged"
+                  placeholder="请选择"  
                   style="width: 100%"
                 >
                   <el-option v-for="(v, k) in options.customBackend" :key="k" :label="k" :value="v"></el-option>
