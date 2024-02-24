@@ -456,9 +456,6 @@ export default {
           },
           clash: {
             doh: false
-          },
-	  singbox: {
-            ipv6: false
           }
         }
       },
