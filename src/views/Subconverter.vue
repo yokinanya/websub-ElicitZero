@@ -73,6 +73,7 @@
                   allow-create
                   filterable
                   placeholder="请选择"
+		   @change="selectChanged"
                   style="width: 100%"
                 >
                   <el-option v-for="(v, k) in options.customBackend" :key="k" :label="k" :value="v"></el-option>
@@ -513,6 +514,9 @@ export default {
     //this.getBackendVersion();
   },
   methods: {
+    selectChanged() {
+      this.getBackendVersion();
+    },
     onCopy() {
       this.$message.success("Copied!");
     },
