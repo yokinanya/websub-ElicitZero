@@ -432,7 +432,7 @@ export default {
       form: {
         sourceSubUrl: "",
         clientType: "",
-           customBackend: this.getUrlParam() == "" ? "https://api.tsutsu.one" : this.getUrlParam(),
+        customBackend: this.getUrlParam() == "" ? "https://api.tsutsu.one" : this.getUrlParam(),
         remoteConfig: "https://cdn.jsdelivr.net/gh/ElicitZero/sub-ini@main/tsutsu-full.ini",
         excludeRemarks: "",
         includeRemarks: "",
@@ -533,7 +533,7 @@ export default {
         var pair = vars[i].split('=');
         if (pair[0] == "backend") {
           return decodeURIComponent(pair[1]);
-        }
+        },
     gotoGayhub() {
       window.open(gayhubRelease);
     },
