@@ -507,7 +507,7 @@ export default {
   },
   mounted() {
     this.form.clientType = "clash";
-    this.form.customBackend = "つつ-多地防失联【负载均衡+国内优化】";
+    this.form.customBackend = "https://api.tsutsu.one";
     this.form.remoteConfig = "https://cdn.jsdelivr.net/gh/ElicitZero/sub-ini@main/tsutsu-full.ini";
     //this.getBackendVersion();
   },
