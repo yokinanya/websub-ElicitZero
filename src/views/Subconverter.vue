@@ -253,11 +253,22 @@ export default {
           "自动判断客户端": "auto",
         },
         customBackend: {
-          "つつの专属后端 (六核负载均衡-支持IPv4/IPv6)": "https://api.tsutsu.one/sub?",
+          "肥羊增强型后端【vless reality+hy1+hy2】": "https://api.v1.mk",
+          "肥羊备用后端【vless reality+hy1+hy2】": "https://sub.d1.mk",
+          "つつ-多地防失联【负载均衡+国内优化】": "https://api.tsutsu.one",
+          nameless13提供: "https://www.nameless13.com",
+          subconverter作者提供: "https://sub.xeton.dev",
+          "sub-web作者提供": "https://api.wcc.best",
+          "sub作者&lhie1提供": "https://api.dler.io",
         },
         backendOptions: [
-          { value: "https://api.tsutsu.one/sub?" },
-        ],
+          {value: "https://api.v1.mk"},
+          {value: "https://sub.d1.mk"},
+          {value: "https://api.tsutsu.one"},
+          {value: "https://www.nameless13.com"},
+          {value: "https://sub.xeton.dev"},
+          {value: "https://api.wcc.best"},
+          {value: "https://api.dler.io"},
         remoteConfig: [
           {
             label: "つつの专属规则",
