@@ -645,7 +645,7 @@ export default {
         return false;
       }
 
-      this.customSubUrl =
+         this.customSubUrl =
           backend +
           "/sub?target=" +
           this.form.clientType +
@@ -720,11 +720,6 @@ export default {
           this.customSubUrl += "&clash.doh=true";
         }
         this.customSubUrl += "&new_name=" + this.form.new_name.toString();
-      }
-      if (this.form.clientType === "singbox") {
-        if (this.form.tpl.singbox.ipv6 === true) {
-          this.customSubUrl += "&singbox.ipv6=1";
-        }
       }
       this.$copyText(this.customSubUrl);
       this.$message.success("定制订阅已复制到剪贴板");
