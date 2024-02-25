@@ -240,6 +240,9 @@
 	margin-right: 0px !important;
 }
 
+.el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
+	background-color: rgba(0, 0, 0, 0.4);
+}
 .el-select-dropdown__wrap::-webkit-scrollbar {
     display: none;
 }
