@@ -25,10 +25,10 @@
         - `Subconverter.vue` ：可设置subweb内容，远程配置后端配置，网页Title+订阅转换上部显示文字等
 
 ## 部署方面
- 修复了vercel部署环境（由于vercel官方将关闭java16支持，所以兼容了Java18 参考了部分 <a href="https://github.com/youshandefeiyang/sub-web-modify" target="_blank">sub-web-modify</a> 项目的代码）<br>
- 关于主题定制方面，解密并本地化了app.js,把主题处理（theme.js）保留到了本地<br>
- 去除了官方项目中的远程主题内置的广告（我有强迫症而且广告失效了，原作者勿怪）<br>
- 已更新sub项目部分功能（例如更多功能按钮和其包含功能）<br>
+ 1.修复了vercel部署环境（由于vercel官方将关闭java16支持，所以兼容了Java18 参考了部分 <a href="https://github.com/youshandefeiyang/sub-web-modify" target="_blank">sub-web-modify</a> 项目的代码）<br>
+ 2.关于主题定制方面，解密并本地化了app.js,把主题处理（theme.js）保留到了本地<br>
+ 3.去除了官方项目中的远程主题内置的广告（我有强迫症而且广告失效了，原作者勿怪）<br>
+ 4.已更新sub项目部分功能（例如更多功能按钮和其包含功能）<br>
 
 ## 未实现功能
 修复并同步"上传自定义功能"
