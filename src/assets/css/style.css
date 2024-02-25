@@ -253,7 +253,8 @@
 	
 }
 .el-select-dropdown{
-	background-color: rgba(0, 0, 0, 0.2);
+	border-radius:10px !important;
+	background-color: rgba(0, 0, 0, 0.2) !important;
 }
 .el-select-dropdown__list{
 	border-radius:10px !important;
