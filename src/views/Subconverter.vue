@@ -145,7 +145,7 @@
                               <el-checkbox v-model="form.scv" label="跳过证书验证" border></el-checkbox>
                             </el-col>
                             <el-col :span="12">
-                              <el-checkbox v-model="form.fdn" label="过滤不支持节点"border></el-checkbox>
+                              <el-checkbox v-model="form.fdn" label="过滤不支持节点" border></el-checkbox>
                             </el-col>
                           </el-row>
                       <el-button slot="reference">更多选项</el-button>
