@@ -255,13 +255,13 @@
 .el-select-dropdown{
 	border-radius:10px !important;
 	background-color: rgba(0, 0, 0, 0.5) !important;
-	color: #fff !important;
 }
 .el-select-dropdown__list{
 	border-radius:10px !important;
 }
 .el-select-dropdown__item {
 	background-color: rgba(0, 0, 0, 0.2);
+	color: #fff;
 }
 
 .el-input.is-disabled .el-input__inner {
