@@ -94,12 +94,12 @@
                 <el-form-item label="输出名称:">
                   <el-input v-model="form.filename" placeholder="返回的订阅文件名" />
                 </el-form-item>
-                <el-form-item label-width="0px">
-                  <el-row type="flex">
-                    <el-col>
-                      <el-checkbox v-model="form.nodeList" label="输出为 Node List" border></el-checkbox>
-                    </el-col>
-                      <el-popover placement="bottom" v-model="form.extraset">
+                <el-form-item class="eldiy" label-width="0px">
+                      <el-row type="flex">
+                        <el-col>
+                          <el-checkbox v-model="form.nodeList" label="仅输出节点信息" border></el-checkbox>
+                        </el-col>
+                        <el-popover placement="bottom" v-model="form.extraset">
                           <el-row :gutter="10">
                             <el-col :span="12">
                               <el-checkbox v-model="form.emoji" label="Emoji"></el-checkbox>
@@ -165,8 +165,8 @@
                           </el-row>
                           <el-button slot="reference">更多选项</el-button>
                         </el-popover>
-                  </el-row>
-                </el-form-item>
+                      </el-row>
+                    </el-form-item>
               </div>
 
               <div style="margin-top: 50px"></div>
