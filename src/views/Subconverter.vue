@@ -619,32 +619,12 @@ export default {
         this.$message.error("订阅链接与客户端为必填项");
         return false;
       }
-      // 远程接口
       let backend =
-        this.form.customBackend === ""
-          ? defaultBackend
-          : this.form.customBackend;
-
-      // 远程配置
-      let config = this.form.remoteConfig === "" ? "" : this.form.remoteConfig;
-
+          this.form.customBackend === ""
+              ? defaultBackend
+              : this.form.customBackend;
       let sourceSub = this.form.sourceSubUrl;
       sourceSub = sourceSub.replace(/(\n|\r|\n\r)/g, "|");
-
-      // 薯条屏蔽
-      if (sourceSub.indexOf("losadhwse") !== -1 && (backend.indexOf("py6.pw") !== -1 || backend.indexOf("subconverter-web.now.sh") !== -1 || backend.indexOf("subconverter.herokuapp.com") !== -1 || backend.indexOf("api.wcc.best") !== -1)) {
-        this.$alert('此机场订阅已将该后端屏蔽，请自建后端转换。', '转换错误提示', {
-          confirmButtonText: '确定',
-          callback: action => {
-            this.$message({
-              type: 'error',
-              message: `action: ${ action }`
-            });
-          }
-        });
-        return false;
-      }
-
       this.customSubUrl =
           backend +
           "/sub?target=" +
@@ -720,6 +700,11 @@ export default {
           this.customSubUrl += "&clash.doh=true";
         }
         this.customSubUrl += "&new_name=" + this.form.new_name.toString();
+      }
+      if (this.form.clientType === "singbox") {
+        if (this.form.tpl.singbox.ipv6 === true) {
+          this.customSubUrl += "&singbox.ipv6=1";
+        }
       }
       this.$copyText(this.customSubUrl);
       this.$message.success("定制订阅已复制到剪贴板");

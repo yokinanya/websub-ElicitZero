@@ -7,7 +7,7 @@
     cursor: pointer !important;
 }
 .el-popover {
-	background: #2C5E8A!important
+	background-color: rgba(0, 0, 0, 0.2);
 }
 
 .gayhub {
