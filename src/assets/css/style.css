@@ -249,12 +249,12 @@
 }
 
 .el-select-dropdown__item.selected {
-	background-color: rgba(0, 0, 0, 0.2);
+	background-color: rgba(0, 0, 0, 0.7);
 	
 }
 .el-select-dropdown{
 	border-radius:10px !important;
-	background-color: rgba(0, 0, 0, 0.2) !important;
+	background-color: rgba(0, 0, 0, 0.5) !important;
 }
 .el-select-dropdown__list{
 	border-radius:10px !important;
@@ -297,7 +297,6 @@
 
 .el-select-group__title {
 	color: #999 !important;
-	background: #143c5e !important;
 	font-weight: 600;
 }
 
