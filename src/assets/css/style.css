@@ -253,7 +253,7 @@
 	
 }
 .el-select-dropdown{
-	border-radius:10px !important;
+	background-color: rgba(0, 0, 0, 0.2);
 }
 .el-select-dropdown__list{
 	border-radius:10px !important;
@@ -428,6 +428,7 @@ input.cmn-toggle-round-flat + label {
 	position: absolute;
 	content: "";
   }
+  
   input.cmn-toggle-round-flat + label:before {
 	top: 2px;
 	left: 2px;
