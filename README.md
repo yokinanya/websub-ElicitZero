@@ -37,6 +37,4 @@
 修复并同步"上传自定义功能"
 
  ##参考项目
-<a href="https://github.com/youshandefeiyang/sub-web-modify" target="_blank">sub-web-modify</a>
--------------------------------------------------------------------
-<a href="https://github.com/lhl77/subweb-tsutsu" target="_blank">subweb-tsutsu</a>
+<a href="https://github.com/youshandefeiyang/sub-web-modify" target="_blank">sub-web-modify</a>|<a href="https://github.com/lhl77/subweb-tsutsu" target="_blank">subweb-tsutsu</a>
