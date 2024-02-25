@@ -110,42 +110,42 @@
                           </el-row>
                           <el-row :gutter="10">
                             <el-col :span="12">
-                              <el-checkbox v-model="form.tfo" label="启用 TFO"></el-checkbox>
+                              <el-checkbox v-model="form.tfo" label="启用 TFO" border></el-checkbox>
                             </el-col>
                             <el-col :span="12">
-                              <el-checkbox v-model="form.sort" label="基础节点排序"></el-checkbox>
-                            </el-col>
-                          </el-row>
-                          <el-row :gutter="10">
-                            <el-col :span="12">
-                              <el-checkbox v-model="form.tpl.clash.doh" label="Clash.DoH"></el-checkbox>
-                            </el-col>
-                            <el-col :span="12">
-                              <el-checkbox v-model="form.appendType" label="插入节点类型"></el-checkbox>
+                              <el-checkbox v-model="form.sort" label="基础节点排序" border></el-checkbox>
                             </el-col>
                           </el-row>
                           <el-row :gutter="10">
                             <el-col :span="12">
-                              <el-checkbox v-model="form.tpl.surge.doh" label="Surge.DoH"></el-checkbox>
+                              <el-checkbox v-model="form.tpl.clash.doh" label="Clash.DoH" border></el-checkbox>
                             </el-col>
                             <el-col :span="12">
-                              <el-checkbox v-model="form.tls13" label="开启TLS_1.3"></el-checkbox>
-                            </el-col>
-                          </el-row>
-                          <el-row :gutter="10">
-                            <el-col :span="12">
-                              <el-checkbox v-model="form.expand" label="展开规则全文"></el-checkbox>
-                            </el-col>
-                            <el-col :span="12">
-                              <el-checkbox v-model="form.new_name" label="Clash新字段名"></el-checkbox>
+                              <el-checkbox v-model="form.appendType" label="插入节点类型" border></el-checkbox>
                             </el-col>
                           </el-row>
                           <el-row :gutter="10">
                             <el-col :span="12">
-                              <el-checkbox v-model="form.scv" label="跳过证书验证"></el-checkbox>
+                              <el-checkbox v-model="form.tpl.surge.doh" label="Surge.DoH" border></el-checkbox>
                             </el-col>
                             <el-col :span="12">
-                              <el-checkbox v-model="form.fdn" label="过滤不支持节点"></el-checkbox>
+                              <el-checkbox v-model="form.tls13" label="开启TLS_1.3" border></el-checkbox>
+                            </el-col>
+                          </el-row>
+                          <el-row :gutter="10">
+                            <el-col :span="12">
+                              <el-checkbox v-model="form.expand" label="展开规则全文" border></el-checkbox>
+                            </el-col>
+                            <el-col :span="12">
+                              <el-checkbox v-model="form.new_name" label="Clash新字段名" border></el-checkbox>
+                            </el-col>
+                          </el-row>
+                          <el-row :gutter="10">
+                            <el-col :span="12">
+                              <el-checkbox v-model="form.scv" label="跳过证书验证" border></el-checkbox>
+                            </el-col>
+                            <el-col :span="12">
+                              <el-checkbox v-model="form.fdn" label="过滤不支持节点" border></el-checkbox>
                             </el-col>
                           </el-row>
                       <el-button slot="reference">更多选项</el-button>
@@ -653,56 +653,77 @@ export default {
           encodeURIComponent(sourceSub) +
           "&insert=" +
           this.form.insert;
-
-      if (config !== "") {
-        this.customSubUrl += "&config=" + encodeURIComponent(config);
-      }
-
-      if (this.advanced === "2") {
-        if (this.form.excludeRemarks !== "") {
-          this.customSubUrl +=
-            "&exclude=" + encodeURIComponent(this.form.excludeRemarks);
-        }
-        if (this.form.includeRemarks !== "") {
-          this.customSubUrl +=
-            "&include=" + encodeURIComponent(this.form.includeRemarks);
-        }
-        if (this.form.filename !== "") {
-          this.customSubUrl +=
-            "&filename=" + encodeURIComponent(this.form.filename);
-        }
-        if (this.form.appendType) {
-          this.customSubUrl +=
-            "&append_type=" + this.form.appendType.toString();
-        }
-
+      if (this.form.remoteConfig !== "") {
         this.customSubUrl +=
+            "&config=" + encodeURIComponent(this.form.remoteConfig);
+      }
+      if (this.form.excludeRemarks !== "") {
+        this.customSubUrl +=
+            "&exclude=" + encodeURIComponent(this.form.excludeRemarks);
+      }
+      if (this.form.includeRemarks !== "") {
+        this.customSubUrl +=
+            "&include=" + encodeURIComponent(this.form.includeRemarks);
+      }
+      if (this.form.filename !== "") {
+        this.customSubUrl +=
+            "&filename=" + encodeURIComponent(this.form.filename);
+      }
+      if (this.form.rename !== "") {
+        this.customSubUrl +=
+            "&rename=" + encodeURIComponent(this.form.rename);
+      }
+      if (this.form.interval !== "") {
+        this.customSubUrl +=
+            "&interval=" + encodeURIComponent(this.form.interval * 86400);
+      }
+      if (this.form.devid !== "") {
+        this.customSubUrl +=
+            "&dev_id=" + encodeURIComponent(this.form.devid);
+      }
+      if (this.form.appendType) {
+        this.customSubUrl +=
+            "&append_type=" + this.form.appendType.toString();
+      }
+      if (this.form.tls13) {
+        this.customSubUrl +=
+            "&tls13=" + this.form.tls13.toString();
+      }
+      if (this.form.sort) {
+        this.customSubUrl +=
+            "&sort=" + this.form.sort.toString();
+      }
+      this.customSubUrl +=
           "&emoji=" +
           this.form.emoji.toString() +
           "&list=" +
           this.form.nodeList.toString() +
+          "&xudp=" +
+          this.form.xudp.toString() +
+          "&udp=" +
+          this.form.udp.toString() +
           "&tfo=" +
           this.form.tfo.toString() +
+          "&expand=" +
+          this.form.expand.toString() +
           "&scv=" +
           this.form.scv.toString() +
           "&fdn=" +
-          this.form.fdn.toString() +
-          "&sort=" +
-          this.form.sort.toString() +
-          "&expand=" +
-          this.form.expand.toString();
-
-        if (this.needUdp) {
-          this.customSubUrl += "&udp=" + this.form.udp.toString()
-        }
+          this.form.fdn.toString();
+      if (this.form.clientType.includes("surge")) {
         if (this.form.tpl.surge.doh === true) {
           this.customSubUrl += "&surge.doh=true";
         }
-        if (this.form.clientType === "clash") {
-          if (this.form.tpl.clash.doh === true) {
-            this.customSubUrl += "&clash.doh=true";
-          }
-          this.customSubUrl += "&new_name=" + this.form.new_name.toString();
+      }
+      if (this.form.clientType === "clash") {
+        if (this.form.tpl.clash.doh === true) {
+          this.customSubUrl += "&clash.doh=true";
+        }
+        this.customSubUrl += "&new_name=" + this.form.new_name.toString();
+      }
+      if (this.form.clientType === "singbox") {
+        if (this.form.tpl.singbox.ipv6 === true) {
+          this.customSubUrl += "&singbox.ipv6=1";
         }
       }
       this.$copyText(this.customSubUrl);
