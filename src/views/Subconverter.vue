@@ -100,11 +100,18 @@
                       <el-checkbox v-model="form.nodeList" label="输出为 Node List" border></el-checkbox>
                     </el-col>
                     <el-popover placement="bottom" v-model="form.extraset">
-                      <el-checkbox v-model="form.emoji" label="Emoji" border></el-checkbox>
-                      <el-checkbox v-model="form.sort" label="排序节点" border></el-checkbox>
+                      <el-row :gutter="10">
+                            <el-col :span="12">
+                              <el-checkbox v-model="form.emoji" label="Emoji"></el-checkbox>
+                            </el-col>
+                            <el-col :span="12">
+                              <el-checkbox v-model="form.insert" label="插入默认节点"></el-checkbox>
+                            </el-col>
+                          </el-row>
                       <el-checkbox v-model="form.udp" @change="needUdp = true" label="启用 UDP" border></el-checkbox>
                       <el-checkbox v-model="form.tpl.surge.doh" label="Surge.DoH" border></el-checkbox>
                       <el-checkbox v-model="form.tpl.clash.doh" label="Clash.DoH" border></el-checkbox>
+                      <el-button slot="reference">更多选项</el-button>
                    </el-popover>
                   </el-row>
                 </el-form-item>
