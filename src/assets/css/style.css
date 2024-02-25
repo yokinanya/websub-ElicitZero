@@ -249,7 +249,7 @@
 }
 
 .el-select-dropdown__item.selected {
-	background: #2d5d86 !important;
+	background-color: rgba(0, 0, 0, 0.2);
 	color: #fff !important;
 }
 .el-select-dropdown{
