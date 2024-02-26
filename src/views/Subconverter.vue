@@ -4,7 +4,7 @@
       <el-col>
         <el-card style="margin-top:20px;max-width:800px;margin:auto;opacity:0.8;blackground-color:#0F4677;border-radius: 20px;">
           <div slot="header" style="blackground-color:#0F4677;text-align:center;font-size :25px !important;font-weight: bold !important;">
-            <svg-icon icon-class="lock" style="margin-left: 20px" title="完整魔改版:v1.5"/>
+            <svg-icon icon-class="lock" style="margin-left: 20px" title="修复版"/>
             珞汐の订阅转换
           </div>
           <el-container>
