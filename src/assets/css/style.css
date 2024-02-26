@@ -15,6 +15,7 @@
 }
 
 .el-dialog {
+	background: none !important;
 	border: 1px solid #313131!important;
 	border-radius:30px !important;
 }
