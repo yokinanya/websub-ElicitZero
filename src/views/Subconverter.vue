@@ -796,6 +796,62 @@ export default {
           this.loading = false;
         });
     },
+    confirmUploadConfig() {
+      if (this.uploadConfig === "") {
+        this.$message.warning("远程配置不能为空");
+        return false;
+      }
+
+      this.loading2 = true;
+
+      let data = new FormData();
+      data.append("password", this.uploadPassword);
+      data.append("config", this.uploadConfig);
+
+      this.$axios
+        .post(configUploadBackend, data, {
+          header: {
+            "Content-Type": "application/form-data; charset=utf-8"
+          }
+        })
+        .then(res => {
+          if (res.data.code === 0 && res.data.data !== "") {
+            this.$message.success("远程配置上传成功，配置链接已复制到剪贴板");
+            
+
+            // 自动填充至『表单-远程配置』
+            this.form.remoteConfig = res.data.data;
+            this.$copyText(this.form.remoteConfig);
+
+            this.dialogUploadConfigVisible = false;
+          } else {
+            this.$message.error("远程配置上传失败..");
+          }
+        })
+        .catch(() => {
+          this.$message.error("远程配置上传失败..");
+        })
+        .finally(() => {
+          this.loading = false;
+        });
+    },
+    backendSearch(queryString, cb) {
+      let backends = this.options.backendOptions;
+
+      let results = queryString
+        ? backends.filter(this.createFilter(queryString))
+        : backends;
+
+      // 调用 callback 返回建议列表的数据
+      cb(results);
+    },
+    createFilter(queryString) {
+      return candidate => {
+        return (
+          candidate.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0
+        );
+      };
+    },
     confirmUploadScript() {
       if (this.form.sourceSubUrl.trim() === "") {
         this.$message.error("订阅链接不能为空");
@@ -830,23 +886,6 @@ export default {
           .finally(() => {
             this.loading2 = false;
           })
-    },
-    backendSearch(queryString, cb) {
-      let backends = this.options.backendOptions;
-
-      let results = queryString
-        ? backends.filter(this.createFilter(queryString))
-        : backends;
-
-      // 调用 callback 返回建议列表的数据
-      cb(results);
-    },
-    createFilter(queryString) {
-      return candidate => {
-        return (
-          candidate.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0
-        );
-      };
     },
     getBackendVersion() {
       this.$axios
