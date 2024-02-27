@@ -230,85 +230,32 @@
       :close-on-press-escape="false"
       width="80%"
     >
-    <el-tabs v-model="activeName" type="card">
-        <el-tab-pane label="远程配置上传" name="first">
-          <el-link type="danger" :href="sampleConfig" style="margin-bottom: 15px" target="_blank" icon="el-icon-info">
-            参考案例
-          </el-link>
-          <el-form label-position="left">
-            <el-form-item prop="uploadConfig">
-              <el-input
-                  v-model="uploadConfig"
-                  type="textarea"
-                  :autosize="{ minRows: 15, maxRows: 15}"
-                  maxlength="50000"
-                  show-word-limit
-              ></el-input>
-            </el-form-item>
-          </el-form>
-          <div style="float: right">
-            <el-button type="primary" @click="uploadConfig = ''; dialogUploadConfigVisible = false">取 消</el-button>
-            <el-button
-                type="primary"
-                @click="confirmUploadConfig"
-                :disabled="uploadConfig.length === 0"
-            >确 定
-            </el-button>
-          </div>
-        </el-tab-pane>
-        <el-tab-pane label="JS排序节点" name="second">
-          <el-link type="success" :href="scriptConfig" style="margin-bottom: 15px" target="_blank" icon="el-icon-info">
-            参考案例
-          </el-link>
-          <el-form label-position="left">
-            <el-form-item prop="uploadScript">
-              <el-input
-                  v-model="uploadScript"
-                  placeholder="本功能暂停使用，如有兴趣，自行去我的GitHub参考sub-web-api项目部署！"
-                  type="textarea"
-                  :autosize="{ minRows: 15, maxRows: 15}"
-                  maxlength="50000"
-                  show-word-limit
-              ></el-input>
-            </el-form-item>
-          </el-form>
-          <div style="float: right">
-            <el-button type="primary" @click="uploadScript = ''; dialogUploadConfigVisible = false">取 消</el-button>
-            <el-button
-                type="primary"
-                @click="confirmUploadScript"
-                :disabled="uploadScript.length === 0"
-            >确 定
-            </el-button>
-          </div>
-        </el-tab-pane>
-        <el-tab-pane label="JS筛选节点" name="third">
-          <el-link type="warning" :href="filterConfig" style="margin-bottom: 15px" target="_blank" icon="el-icon-info">
-            参考案例
-          </el-link>
-          <el-form label-position="left">
-            <el-form-item prop="uploadFilter">
-              <el-input
-                  v-model="uploadFilter"
-                  placeholder="本功能暂停使用，如有兴趣，自行去我的GitHub参考sub-web-api项目部署！"
-                  type="textarea"
-                  :autosize="{ minRows: 15, maxRows: 15}"
-                  maxlength="50000"
-                  show-word-limit
-              ></el-input>
-            </el-form-item>
-          </el-form>
-          <div style="float: right">
-            <el-button type="primary" @click="uploadFilter = ''; dialogUploadConfigVisible = false">取 消</el-button>
-            <el-button
-                type="primary"
-                @click="confirmUploadScript"
-                :disabled="uploadFilter.length === 0"
-            >确 定
-            </el-button>
-          </div>
-        </el-tab-pane>
-      </el-tabs>
+      <div slot="title">
+        Remote config upload
+        <el-popover trigger="hover" placement="right" style="margin-left: 10px">
+          <el-link type="primary" :href="sampleConfig" target="_blank" icon="el-icon-info">参考配置</el-link>
+          <i class="el-icon-question" slot="reference"></i>
+        </el-popover>
+      </div>
+      <el-form label-position="left">
+        <el-form-item prop="uploadConfig">
+          <el-input
+            v-model="uploadConfig"
+            type="textarea"
+            :autosize="{ minRows: 15, maxRows: 15}"
+            maxlength="10000"
+            show-word-limit
+          ></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="uploadConfig = ''; dialogUploadConfigVisible = false">取 消</el-button>
+        <el-button
+          type="primary"
+          @click="confirmUploadConfig"
+          :disabled="uploadConfig.length === 0"
+        >确 定</el-button>
+      </div>
     </el-dialog>
   </div>
 </template>
