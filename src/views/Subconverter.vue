@@ -195,22 +195,32 @@
                   style="width: 120px"
                   type="primary"
                   @click="makeShortUrl"
-                  :loading="loading"
+                  :loading="loading1"
                   :disabled="customSubUrl.length === 0"
                 >生成短链接</el-button>
                 <!-- <el-button style="width: 120px" type="primary" @click="surgeInstall" icon="el-icon-connection">一键导入Surge</el-button> -->
               </el-form-item>
-
               <el-form-item label-width="0px" style="text-align: center">
                 <el-button
-                  style="width: 120px"
-                  type="primary"
-                  @click="dialogUploadConfigVisible = true"
-                  icon="el-icon-upload"
-                  :loading="loading2"
-                >上传配置</el-button>
+                    style="width: 120px"
+                    type="primary"
+                    @click="dialogUploadConfigVisible = true"
+                    icon="el-icon-upload"
+                    :loading="loading2"
+                >自定义配置
+                </el-button>
                 <el-button
-                  style="width: 120px"
+                    style="width: 120px"
+                    type="primary"
+                    @click="dialogLoadConfigVisible = true"
+                    icon="el-icon-copy-document"
+                    :loading="loading3"
+                >从URL解析
+                </el-button>
+              </el-form-item>
+              <el-form-item label-width="0px" style="text-align: center">   
+                <el-button
+                  style="width: 250px"
                   type="primary"
                   @click="clashInstall"
                   icon="el-icon-connection"
@@ -254,58 +264,6 @@
                 :disabled="uploadConfig.length === 0"
             >确 定
           </el-button>
-          </div>
-        </el-tab-pane>
-        <el-tab-pane label="JS排序节点" name="second">
-          <el-link type="success" :href="scriptConfig" style="margin-bottom: 15px" target="_blank" icon="el-icon-info">
-            参考案例
-          </el-link>
-          <el-form label-position="left">
-            <el-form-item prop="uploadScript">
-              <el-input
-                  v-model="uploadScript"
-                  placeholder="本功能暂停使用，如有兴趣，自行去我的GitHub参考sub-web-api项目部署！"
-                  type="textarea"
-                  :autosize="{ minRows: 15, maxRows: 15}"
-                  maxlength="50000"
-                  show-word-limit
-              ></el-input>
-            </el-form-item>
-          </el-form>
-          <div style="float: right">
-            <el-button type="primary" @click="uploadScript = ''; dialogUploadConfigVisible = false">取 消</el-button>
-            <el-button
-                type="primary"
-                @click="confirmUploadScript"
-                :disabled="uploadScript.length === 0"
-            >确 定
-            </el-button>
-          </div>
-        </el-tab-pane>
-        <el-tab-pane label="JS筛选节点" name="third">
-          <el-link type="warning" :href="filterConfig" style="margin-bottom: 15px" target="_blank" icon="el-icon-info">
-            参考案例
-          </el-link>
-          <el-form label-position="left">
-            <el-form-item prop="uploadFilter">
-              <el-input
-                  v-model="uploadFilter"
-                  placeholder="本功能暂停使用，如有兴趣，自行去我的GitHub参考sub-web-api项目部署！"
-                  type="textarea"
-                  :autosize="{ minRows: 15, maxRows: 15}"
-                  maxlength="50000"
-                  show-word-limit
-              ></el-input>
-            </el-form-item>
-          </el-form>
-          <div style="float: right">
-            <el-button type="primary" @click="uploadFilter = ''; dialogUploadConfigVisible = false">取 消</el-button>
-            <el-button
-                type="primary"
-                @click="confirmUploadScript"
-                :disabled="uploadFilter.length === 0"
-            >确 定
-            </el-button>
           </div>
         </el-tab-pane>
       </el-tabs>
@@ -559,8 +517,9 @@ export default {
           }
         }
       },
-
-      loading: false,
+      loading1: false,
+      loading2: false,
+      loading3: false,
       customSubUrl: "",
       curtomShortSubUrl: "",
 
