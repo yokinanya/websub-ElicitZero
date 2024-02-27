@@ -256,6 +256,58 @@
           </el-button>
           </div>
         </el-tab-pane>
+        <el-tab-pane label="JS排序节点" name="second">
+          <el-link type="success" :href="scriptConfig" style="margin-bottom: 15px" target="_blank" icon="el-icon-info">
+            参考案例
+          </el-link>
+          <el-form label-position="left">
+            <el-form-item prop="uploadScript">
+              <el-input
+                  v-model="uploadScript"
+                  placeholder="本功能暂停使用，如有兴趣，自行去我的GitHub参考sub-web-api项目部署！"
+                  type="textarea"
+                  :autosize="{ minRows: 15, maxRows: 15}"
+                  maxlength="50000"
+                  show-word-limit
+              ></el-input>
+            </el-form-item>
+          </el-form>
+          <div style="float: right">
+            <el-button type="primary" @click="uploadScript = ''; dialogUploadConfigVisible = false">取 消</el-button>
+            <el-button
+                type="primary"
+                @click="confirmUploadScript"
+                :disabled="uploadScript.length === 0"
+            >确 定
+            </el-button>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="JS筛选节点" name="third">
+          <el-link type="warning" :href="filterConfig" style="margin-bottom: 15px" target="_blank" icon="el-icon-info">
+            参考案例
+          </el-link>
+          <el-form label-position="left">
+            <el-form-item prop="uploadFilter">
+              <el-input
+                  v-model="uploadFilter"
+                  placeholder="本功能暂停使用，如有兴趣，自行去我的GitHub参考sub-web-api项目部署！"
+                  type="textarea"
+                  :autosize="{ minRows: 15, maxRows: 15}"
+                  maxlength="50000"
+                  show-word-limit
+              ></el-input>
+            </el-form-item>
+          </el-form>
+          <div style="float: right">
+            <el-button type="primary" @click="uploadFilter = ''; dialogUploadConfigVisible = false">取 消</el-button>
+            <el-button
+                type="primary"
+                @click="confirmUploadScript"
+                :disabled="uploadFilter.length === 0"
+            >确 定
+            </el-button>
+          </div>
+        </el-tab-pane>
       </el-tabs>
     </el-dialog>
       
@@ -516,9 +568,9 @@ export default {
       uploadConfig: "",
       uploadPassword: "",
       myBot: tgBotLink,
-      sampleConfig: remoteConfigSample,
-
-      needUdp: false, // 是否需要添加 udp 参数
+      filterConfig: filterConfigSample,
+      scriptConfig: scriptConfigSample,
+      sampleConfig: remoteConfigSample // 是否需要添加 udp 参数
     };
 
     // window.console.log(data.options.remoteConfig);
@@ -744,44 +796,40 @@ export default {
           this.loading = false;
         });
     },
-    confirmUploadConfig() {
-      if (this.uploadConfig === "") {
-        this.$message.warning("远程配置不能为空");
+    confirmUploadScript() {
+      if (this.form.sourceSubUrl.trim() === "") {
+        this.$message.error("订阅链接不能为空");
         return false;
       }
-
-      this.loading = true;
-
-      let data = new FormData();
-      data.append("password", this.uploadPassword);
-      data.append("config", this.uploadConfig);
-
+      this.loading2 = true;
+      let data = this.renderPost();
+      data.append("sortscript", encodeURIComponent(this.uploadScript));
+      data.append("filterscript", encodeURIComponent(this.uploadFilter));
       this.$axios
-        .post(configUploadBackend, data, {
-          header: {
-            "Content-Type": "application/form-data; charset=utf-8"
-          }
-        })
-        .then(res => {
-          if (res.data.code === 0 && res.data.data !== "") {
-            this.$message.success("远程配置上传成功，配置链接已复制到剪贴板");
-            
-
-            // 自动填充至『表单-远程配置』
-            this.form.remoteConfig = res.data.data;
-            this.$copyText(this.form.remoteConfig);
-
-            this.dialogUploadConfigVisible = false;
-          } else {
-            this.$message.error("远程配置上传失败..");
-          }
-        })
-        .catch(() => {
-          this.$message.error("远程配置上传失败..");
-        })
-        .finally(() => {
-          this.loading = false;
-        });
+          .post(configScriptBackend, data, {
+            header: {
+              "Content-Type": "application/form-data; charset=utf-8"
+            }
+          })
+          .then(res => {
+            if (res.data.code === 0 && res.data.data !== "") {
+              this.$message.success(
+                  "自定义JS上传成功，订阅链接已复制到剪贴板（IOS设备和Safari浏览器不支持自动复制API，需手动点击复制按钮）"
+              );
+              this.customSubUrl = res.data.data;
+              this.$copyText(res.data.data);
+              this.dialogUploadConfigVisible = false;
+              this.btnBoolean = true;
+            } else {
+              this.$message.error("自定义JS上传失败: " + res.data.msg);
+            }
+          })
+          .catch(() => {
+            this.$message.error("自定义JS上传失败");
+          })
+          .finally(() => {
+            this.loading2 = false;
+          })
     },
     backendSearch(queryString, cb) {
       let backends = this.options.backendOptions;
