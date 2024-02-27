@@ -316,7 +316,9 @@
 
 <script>
 const project = process.env.VUE_APP_PROJECT
-const remoteConfigSample = process.env.VUE_APP_SUBCONVERTER_REMOTE_CONFIG
+const scriptConfigSample = process.env.VUE_APP_SCRIPT_CONFIG
+const filterConfigSample = process.env.VUE_APP_FILTER_CONFIG
+const defaultBackend = process.env.VUE_APP_SUBCONVERTER_DEFAULT_BACKEND
 const gayhubRelease = process.env.VUE_APP_BACKEND_RELEASE
 const defaultBackend = process.env.VUE_APP_SUBCONVERTER_DEFAULT_BACKEND + '/sub?'
 const shortUrlBackend = process.env.VUE_APP_MYURLS_DEFAULT_BACKEND + '/short'
@@ -338,7 +340,8 @@ export default {
           ClashR: "clashr",
           Surge2: "surge&ver=2",
           Surge3: "surge&ver=3",
-          Surge4: "surge&ver=4",
+          "Surge4/5": "surge&ver=4",
+          "Sing-Box": "singbox",
           Quantumult: "quan",
           "Quantumult X": "quanx",
           Loon: "loon",
