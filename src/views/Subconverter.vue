@@ -200,25 +200,15 @@
                 >生成短链接</el-button>
                 <!-- <el-button style="width: 120px" type="primary" @click="surgeInstall" icon="el-icon-connection">一键导入Surge</el-button> -->
               </el-form-item>
+
               <el-form-item label-width="0px" style="text-align: center">
                 <el-button
-                    style="width: 120px"
-                    type="primary"
-                    @click="dialogUploadConfigVisible = true"
-                    icon="el-icon-upload"
-                    :loading="loading2"
-                >自定义配置
-                </el-button>
-                <el-button
-                    style="width: 120px"
-                    type="primary"
-                    @click="dialogLoadConfigVisible = true"
-                    icon="el-icon-copy-document"
-                    :loading="loading3"
-                >从URL解析
-                </el-button>
-              </el-form-item>
-                <el-form-item label-width="0px" style="text-align: center">
+                  style="width: 120px"
+                  type="primary"
+                  @click="dialogUploadConfigVisible = true"
+                  icon="el-icon-upload"
+                  :loading="loading"
+                >上传配置</el-button>
                 <el-button
                   style="width: 120px"
                   type="primary"
