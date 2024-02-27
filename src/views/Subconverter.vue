@@ -207,7 +207,7 @@
                   type="primary"
                   @click="dialogUploadConfigVisible = true"
                   icon="el-icon-upload"
-                  :loading="loading"
+                  :loading="loading2"
                 >上传配置</el-button>
                 <el-button
                   style="width: 120px"
