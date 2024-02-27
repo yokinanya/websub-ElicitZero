@@ -294,10 +294,39 @@
         </el-tab-pane>
       </el-tabs>
     </el-dialog>
-      
+    <el-dialog
+        :visible.sync="dialogLoadConfigVisible"
+        :show-close="false"
+        :close-on-click-modal="false"
+        :close-on-press-escape="false"
+        width="80%"
+    >
+      <div slot="title">
+        可以从生成的长/短链接中解析信息,填入页面中去
+      </div>
+      <el-form label-position="left">
+        <el-form-item prop="uploadConfig">
+          <el-input
+              v-model="loadConfig"
+              type="textarea"
+              :autosize="{ minRows: 15, maxRows: 15}"
+              maxlength="5000"
+              show-word-limit
+          ></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="loadConfig = ''; dialogLoadConfigVisible = false">取 消</el-button>
+        <el-button
+            type="primary"
+            @click="confirmLoadConfig"
+            :disabled="loadConfig.length === 0"
+        >确 定
+        </el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
-
 <script>
 const project = process.env.VUE_APP_PROJECT
 const configScriptBackend = process.env.VUE_APP_CONFIG_UPLOAD_BACKEND + '/api.php'
