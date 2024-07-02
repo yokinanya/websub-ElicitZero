@@ -261,8 +261,6 @@
 </template>
 
 <script>
-import { values } from 'core-js/core/array'
-
 const project = process.env.VUE_APP_PROJECT
 const remoteConfigSample = process.env.VUE_APP_SUBCONVERTER_REMOTE_CONFIG
 const gayhubRelease = process.env.VUE_APP_BACKEND_RELEASE
