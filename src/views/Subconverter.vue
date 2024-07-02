@@ -5,7 +5,7 @@
         <el-card style="margin-top:20px;max-width:800px;margin:auto;opacity:0.8;blackground-color:#0F4677;border-radius: 20px;">
           <div slot="header" style="blackground-color:#0F4677;text-align:center;font-size :25px !important;font-weight: bold !important;">
             <svg-icon icon-class="lock" style="margin-left: 20px" title="完整魔改版:v1.5"/>
-            珞汐の订阅转换
+            星雨沫の订阅转换
           </div>
           <el-container>
             <el-form :model="form" label-width="80px" label-position="left" style="width: 100%;">
@@ -261,6 +261,8 @@
 </template>
 
 <script>
+import { values } from 'core-js/core/array'
+
 const project = process.env.VUE_APP_PROJECT
 const remoteConfigSample = process.env.VUE_APP_SUBCONVERTER_REMOTE_CONFIG
 const gayhubRelease = process.env.VUE_APP_BACKEND_RELEASE
@@ -293,7 +295,7 @@ export default {
           "Shadowsocks(SIP002)": "ss",
           "Shadowsocks Android(SIP008)": "sssub",
           ShadowsocksR: "ssr",
-          ShadowsocksD: "ssd",          
+          ShadowsocksD: "ssd",
           V2Ray: "v2ray",
           Trojan: "trojan",
           "混合订阅（mixed）": "mixed",
@@ -307,6 +309,7 @@ export default {
           "subconverter作者提供": "https://sub.xeton.dev",
           "sub-web作者提供": "https://api.wcc.best",
           "sub作者&lhie1提供": "https://api.dler.io",
+          "星雨沫家里云【纯ipv6】":"https://ddns.yokinanya.icu:5552/subconverter"
         },
         backendOptions: [
           {value: "https://api.v1.mk"},
@@ -316,8 +319,18 @@ export default {
           {value: "https://sub.xeton.dev"},
           {value: "https://api.wcc.best"},
           {value: "https://api.dler.io"},
+          {value: "https://ddns.yokinanya.icu:5552/subconverter"},
 	],
         remoteConfig: [
+          {
+            label: "星雨沫专属规则",
+            options: [
+              {
+                label: "星雨沫-默认",
+                value:"config/staryokina_online.ini"
+              }
+            ]
+          },
           {
             label: "つつの专属规则",
             options: [
