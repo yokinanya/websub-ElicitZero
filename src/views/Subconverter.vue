@@ -363,8 +363,8 @@ export default {
       form: {
         sourceSubUrl: "",
         clientType: "",
-        customBackend: this.getUrlParam() == "" ? "https://api.tsutsu.one" : this.getUrlParam(),
-        remoteConfig: "https://gcore.jsdelivr.net/gh/ElicitZero/sub-ini@main/tsutsu-full.ini",
+        customBackend: this.getUrlParam() == "" ? "https://sub.xeton.dev" : this.getUrlParam(),
+        remoteConfig: "config/ACL4SSR_Online.ini",
         excludeRemarks: "",
         includeRemarks: "",
         filename: "",
@@ -440,8 +440,8 @@ export default {
   mounted() {
     this.form.clientType = "clash";
     this.getBackendVersion();
-    this.form.customBackend = "https://api.tsutsu.one";
-    this.form.remoteConfig = "https://gcore.jsdelivr.net/gh/ElicitZero/sub-ini@main/tsutsu-full.ini";
+    this.form.customBackend = "https://sub.xeton.dev";
+    this.form.remoteConfig = "config/ACL4SSR_Online.ini";
     //this.getBackendVersion();
   },
   methods: {
