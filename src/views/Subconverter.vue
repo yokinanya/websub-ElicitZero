@@ -255,6 +255,10 @@ export default {
               {
                 label: "星雨沫-默认",
                 value: "config/staryokina_online.ini"
+              },
+              {
+                label: "星雨沫-服务器",
+                value: "config/staryokina_online_server.ini"
               }
             ]
           },
